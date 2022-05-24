@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>List Customers</title>
+	
+	<!-- reference our style sheet -->
+
+	<link type="text/css"
+		  rel="stylesheet"
+		  href="/resources/css/style.css" />
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+		<div id="header">
+			<h2>CRM - Customer Relationship Manager</h2>
+		</div>
+	</div>
+	
+	<div id="container">
+	
+		<div id="content">
+		
+			<div id="content">
+		
+				<!-- put new button: Add Customer -->
+			
+				<input type="button" value="Add Customer"
+					   onclick="window.location.href='CustomerForm'; return false;"
+					   class="add-button"
+				/>
+		
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+				
+			
+				
+					<tr th:each="customer: ${customers}">
+						<url var="updateLink" value="/customer/CustomerUpdateForm">
+							<param name="customerId" value="${customer.id}" />
+						</url>	
+						<td th:text=${customer.id} ></td>
+						<td th:text=${customer.firstName} ></td>
+						<td th:text=${customer.lastName} ></td>
+						<td th:text=${customer.email} ></td>
+						
+						<td>
+							<!-- display the update link -->
+							<a th:href="@{/customer/CustomerUpdateForm/{customerId}(customerId=${customer.id})}">Update</a>
+						</td>
+						
+							
+							
+							
+						
+					</tr>
+				
+								
+					
+					
+						
+						
+			</table>
+				
+		</div>
+	
+	</div>
+	
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

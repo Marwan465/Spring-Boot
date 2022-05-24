@@ -1,0 +1,59 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Save Customer</title>
+
+	<link type="text/css"
+		  rel="stylesheet"
+		  href="${pageContext.request.contextPath}/resources/css/style.css">
+
+	<link type="text/css"
+		  rel="stylesheet"
+		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
+</head>
+
+<body>
+	
+	<div id="wrapper">
+		<div id="header">
+			<h2>CRM - Customer Relationship Manager</h2>
+		</div>
+	</div>
+
+	<div id="container">
+		<h3>Update Customer</h3>
+		<form method="get" th:modelAttribute="${customer}" th:action="@{/customer/updateCustomer}">
+			<input hidden name="id" th:value="${customer.id}"/>
+			<input type="text" name="firstName" th:value="*{firstName}" placeholder="first Name"/>
+			<input type="text" name="lastName" th:value="*{lastName}" placeholder="last Name"/>
+			<input type="text" name="email" th:value="*{email}" placeholder="email"/>
+			<button type="submit">Save Customer</button>
+		</form>
+
+				
+		
+	
+		<div style="clear:both;"></div>
+		
+		<p>
+			<a href="${pageContext.request.contextPath}/customer/list">Back to List</a>
+		</p>
+	
+	</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
